@@ -4,13 +4,10 @@ public class Editor {
     
     public static void main(String[] args) {
         //Ponto
-        Ponto pont1 = new Ponto();
-        pont1.setX(5);
-        pont1.setY(9);
+        Ponto pont1 = new Ponto(5,9);
+        
 
-        Ponto pont2 = new Ponto();
-        pont2.setX(3);
-        pont2.setY(7);
+        Ponto pont2 = new Ponto(3,7);
 
         //Reta
         Reta ret = new Reta();
@@ -22,9 +19,7 @@ public class Editor {
 
 
         //Circulo
-        Ponto pontoCentral = new Ponto();
-        pontoCentral.setX(2);
-        pontoCentral.setY(4);
+        Ponto pontoCentral = new Ponto(2,4);
 
         Circulo circ = new Circulo();
         circ.setCentro(pontoCentral);
@@ -33,9 +28,7 @@ public class Editor {
         System.out.printf("Area do circulo: %.2f %n" , (circ.AreaCirc()));
 
         //Quadrado
-        Ponto pontoOrigem = new Ponto();
-        pontoOrigem.setX(1);
-        pontoOrigem.setY(3);
+        Ponto pontoOrigem = new Ponto(1,3);
 
         Quadrado quad = new Quadrado();
         quad.setOrigem(pontoOrigem);
