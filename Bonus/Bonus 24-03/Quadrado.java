@@ -21,6 +21,8 @@ public class Quadrado {
         this.lado = lado;
     }
 
+
+    //area
     float AreaQuad() {
         float area;
         area = (float) (lado*lado);

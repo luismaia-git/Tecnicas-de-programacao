@@ -42,12 +42,6 @@ public class Editor {
         quad.setLado(4);
 
         System.out.println("Area do quadrado: " + quad.AreaQuad());
-
-        
-
-        
-       
-
-
+    
     }
 }

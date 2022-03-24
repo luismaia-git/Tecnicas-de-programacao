@@ -24,6 +24,8 @@ public class Reta {
         this.p2 = p2;
     }
 
+
+    //medida da reta
     double getDistance() {
         double distance;
         
