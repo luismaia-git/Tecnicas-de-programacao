@@ -9,8 +9,8 @@ public class Conta {
             this.dono = c;
             this.tipo = tipo;
             this.saldo = 0;
-            this.numConta++;
             this.banco = bank;
+            this.numConta++;
         }
 
         int getClienteId() {

@@ -51,16 +51,18 @@ public class Cliente {
 
     
 	void fecharConta(Conta c){
-        int indice = 0;
+
         for (Conta conta : contas) {
+            //System.out.println("estou em fechar conta cliente, numero da conta"+ conta.getNumConta());
             if(conta != null){
-                indice++;
-                if(conta == c){
-                    contas [indice] = null;
+                if(conta.getNumConta() == c.getNumConta()){
+                    
+                    conta = null;
                 }
             }
             
         }
+        System.out.println("Conta encerrada no array de cliente++++++");
 	    
 	}
 

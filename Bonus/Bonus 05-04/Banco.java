@@ -11,15 +11,11 @@ public class Banco {
 	Banco(String nome, int cod) {
 		setNome(nome);
 		setCodigo(cod);
-		this.qtdConta++;
-		this.qtdCliente++;
 	}
 
 	Banco(String nome) {
 		setNome(nome);
 		this.codigo++;
-		this.qtdConta++;
-		this.qtdCliente++;
 	}
 
 	//set 
@@ -45,7 +41,10 @@ public class Banco {
 	//metodos
 	void criarConta (Cliente c, String tipo) {
 		if(c != null) {
+			
 			contas [qtdConta++] = new Conta(c,tipo, this);
+			c.contas [qtdConta++] = new Conta(c,tipo, this);
+
 		} else {
 			System.out.println("Cliente = null");
 		}
@@ -53,9 +52,8 @@ public class Banco {
 	}
 
 	void cadastrarCliente (String nome, String cpf, int idade) {
-
 		clientes[qtdCliente++] = new Cliente(nome, cpf, idade);
-
+		
 	}
 
 	Cliente pesquisarCliente(String cpf){
@@ -73,13 +71,15 @@ public class Banco {
 	Conta pesquisarConta(int numConta){
 		for (Conta conta2: contas) {
 			if(conta2 != null) {
-
-				if(conta2.getNumConta() == numConta) {
-					System.out.printf("Conta encontrada, numero da conta: %s\n\n", conta2.getNumConta());
+				if(conta2.getNumConta() == numConta && conta2.getCliente() != null) {
+					System.out.printf("Conta encontrada, numero da conta: %s titular: %s saldo: %s\n\n", conta2.getNumConta(), conta2.getCliente().getNome() , conta2.getSaldo() );
 					return conta2;
-				} 
+				} else{
+					System.out.println("Conta nao encontrada\n");
+				}
 			}
 		}
+		
 		return null;
 	}
     
@@ -89,7 +89,7 @@ public class Banco {
 			if(conta != null){
 
 				if(conta.getCliente() != null){
-					System.out.printf("Titular da conta: %s\nSaldo: %s\nTipo: %s\n\n" , conta.getCliente().getNome(), conta.getSaldo(), conta.getTipo());
+					System.out.printf("Titular da conta: %s\nNumero da conta: %s\nSaldo: %s\nTipo: %s\n\n" , conta.getCliente().getNome(), conta.getNumConta(),conta.getSaldo(), conta.getTipo());
 				}
 				 
 			} 
@@ -109,12 +109,17 @@ public class Banco {
 	
 	void fecharConta (Conta c) {
 		
-		if(c != null) {
-			c.fecharConta();
-			System.out.println("Conta encerrada");
-		} else{
-			System.out.println("Conta null");
-		}
 		
+		c.fecharConta(); // fechando a conta la no array de cliente
+		
+        for (Conta conta : contas) {
+            if(conta != null){
+                if(conta == c){
+					conta = null;
+				}
+			}	
+        }	
+		System.out.println("Conta encerrada no array do banco++++++");
+		System.out.println("==============================");
 	}
 }
