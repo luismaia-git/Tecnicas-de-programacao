@@ -1,6 +1,8 @@
+
 public class Conta {
         Banco banco;
         Cliente dono;
+        Cliente dependente;
         float saldo;
         String tipo;
         int numConta;
@@ -10,8 +12,15 @@ public class Conta {
             this.tipo = tipo;
             this.saldo = 0;
             this.banco = bank;
-            this.numConta++;
+            
         }
+
+        //set
+        void setDependente(Cliente depen){
+            this.dependente = depen;
+        }
+        
+        //get
 
         int getClienteId() {
             return this.dono.getId();
@@ -21,6 +30,9 @@ public class Conta {
             return this.dono;
         }
 
+        Cliente getDependente(){
+            return this.dependente;
+        }
         int getNumConta() {
             return this.numConta;
         }
@@ -36,17 +48,30 @@ public class Conta {
 
         //metodos
         void sacar(float valor) {
-            this.saldo -= valor;
+            
+            if(this.saldo < valor){
+                System.out.println("Não tem saldo suficiente para o saque deste valor");
+            } else{
+                this.saldo -= valor;
+            }
         }
 
         void depositar(float valor) {
             this.saldo += valor;
         }
+
+        void visualizarSaldo() {
+            System.out.println("Saldo disponivel: "+ this.getSaldo());
+        }
         
-        
+        void setNumConta(int n){
+            this.numConta = n;
+        }
+
         void fecharConta () {
             dono.fecharConta(this);
             dono = null;
+            dependente = null;
         }
     
 }

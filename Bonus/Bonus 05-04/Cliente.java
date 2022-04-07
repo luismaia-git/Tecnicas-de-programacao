@@ -9,7 +9,6 @@ public class Cliente {
 
 
     Cliente(String nome, String cpf, int idade){
-        this.id++;
         setNome(nome);
         setCpf(cpf); 
         setIdade(idade);
@@ -30,6 +29,9 @@ public class Cliente {
         this.idade = idade;
     }
 
+    void setId(int valor) {
+        this.id = valor;
+    }
     //get
     int getId(){
         return this.id;
@@ -52,17 +54,26 @@ public class Cliente {
     
 	void fecharConta(Conta c){
 
+        String nomeCli = "";
+		int numConta = 0;
+
+        System.out.println("==========================================");
+        System.out.println("Solicitação de encerramento da conta aceito. Executando ação...");
+
         for (Conta conta : contas) {
-            //System.out.println("estou em fechar conta cliente, numero da conta"+ conta.getNumConta());
+            
             if(conta != null){
                 if(conta.getNumConta() == c.getNumConta()){
-                    
+                    nomeCli = c.getCliente().getNome();
+					numConta = c.getNumConta();
                     conta = null;
                 }
             }
             
         }
-        System.out.println("Conta encerrada no array de cliente++++++");
+
+        System.out.printf("Conta com o numero %s do cliente %s foi encerrada com sucesso!\n", numConta, nomeCli);
+		
 	    
 	}
 
