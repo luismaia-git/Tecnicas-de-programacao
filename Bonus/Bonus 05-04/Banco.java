@@ -45,6 +45,9 @@ public class Banco {
 
 	//metodos
 	void criarConta (Cliente c, String tipo) {
+		
+		/* Caso o cliente pudesse somente ter uma conta: 
+		
 		for (int i =0; i < contas.length; i++) {
 			if(contas[i] != null && contas[i].getCliente() != null) { 
 				if(c.getId() == contas[i].getClienteId()) {
@@ -53,7 +56,8 @@ public class Banco {
 				}
 			}	
 		}
-		
+		*/
+
 		if(c.getIdade() < 18) { //c é o menor de idade , entao eh o dependente
 			System.out.println("Cliente menor de idade, não pode ser o titular conta");
 			System.out.printf("Informe Cpf do cliente que será o titular da conta: \n");

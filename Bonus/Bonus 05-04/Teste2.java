@@ -14,11 +14,13 @@ public class Teste2 {
 
         san.listarConta();
 
-        //san.fecharConta(san.contas[1]);
+        san.fecharConta(san.contas[1]);
 
         san.listarConta();
 
 
+
+        san.contas[1].depositar(100);
 
         san.pesquisarConta(1);
 
