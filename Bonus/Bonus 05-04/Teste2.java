@@ -18,9 +18,7 @@ public class Teste2 {
 
         san.listarConta();
 
-
-
-        san.contas[1].depositar(100);
+        //san.contas[1].depositar(100);
 
         san.pesquisarConta(1);
 

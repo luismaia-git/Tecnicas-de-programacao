@@ -48,33 +48,19 @@ public class Conta {
 
         //metodos
         void sacar(float valor) {
-            try {
-                if(this.saldo < valor){
-                    System.out.println("Não tem saldo suficiente para o saque deste valor");
-                } else{
-                    this.saldo -= valor;
-                }
-            } catch(Exception erro) {
-                System.out.println("Não é possivel sacar dinheiro da conta pois ela não existe");
-            }
-            
+            if(this.saldo < valor){
+                System.out.println("Não tem saldo suficiente para o saque deste valor");
+            } else{
+                this.saldo -= valor;
+            } 
         }
 
         void depositar(float valor) {
-            try {
-                this.saldo += valor;
-            } catch(Exception erro) {
-                System.out.println("Não é possivel depositar dinheiro na conta pois ela não existe");
-            }
+            this.saldo += valor;
         }
 
         void visualizarSaldo() {
-            try {
-                System.out.println("Saldo disponivel: "+ this.getSaldo());
-            } catch(Exception erro){
-                System.out.println("Não é possivel visualizar o saldo da conta pois ela não existe");
-            }
-            
+            System.out.println("Saldo disponivel: "+ this.getSaldo());
         }
         
         void setNumConta(int n){
